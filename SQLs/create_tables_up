@@ -1,0 +1,27 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+CREATE TABLE IF NOT EXISTS players (
+	id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+	balance DECIMAL(10, 2) NOT NULL DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS games (
+	id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+	sum_to_enter DECIMAL(10, 2) NOT NULL,
+	sum_collected DECIMAL(10, 2) DEFAULT 0,
+	finish_date TIMESTAMP NOT NULL,
+	is_resolved BOOLEAN NOT NULL DEFAULT FALSE, 
+	winner_id UUID,
+	CHECK (winner_id IS NULL OR is_resolved IS TRUE),
+	FOREIGN KEY (winner_id) REFERENCES players (id)
+);
+
+CREATE TABLE IF NOT EXISTS games_players (
+	id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+	game_id UUID NOT NULL,
+	player_id UUID NOT NULL,	
+	FOREIGN KEY (game_id) REFERENCES games (id),
+	FOREIGN KEY (player_id) REFERENCES players (id),
+	CONSTRAINT game_player_unique_custom_constraint UNIQUE (game_id, player_id)
+);
+

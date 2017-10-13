@@ -1,0 +1,201 @@
+{
+	"variables": [],
+	"info": {
+		"name": "lottery",
+		"_postman_id": "d4cb8052-31aa-94a6-59d2-e45ab21f828a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "players",
+			"description": "",
+			"item": [
+				{
+					"name": "GET all players",
+					"request": {
+						"url": "localhost:8080/players/",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET player by id",
+					"request": {
+						"url": "localhost:8080/players/{{playerId}}",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET games of player",
+					"request": {
+						"url": "localhost:8080/players/{{playerId}}/games",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "POST player",
+					"request": {
+						"url": "localhost:8080/players/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"player\": {\n\t\t\"balance\": 10\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "POST game of player",
+					"request": {
+						"url": "localhost:8080/players/{{playerId1}}/games",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"gameId\": \"{{gameId1}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE player by id",
+					"request": {
+						"url": "localhost:8080/players/{{playerId}}",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "games",
+			"description": "",
+			"item": [
+				{
+					"name": "GET all games",
+					"request": {
+						"url": "localhost:8080/games/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"player\": {\n\t\t\"balance\": 10\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET game by id",
+					"request": {
+						"url": "localhost:8080/games/{{gameId}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"player\": {\n\t\t\"balance\": 10\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET players of game",
+					"request": {
+						"url": "localhost:8080/games/{{gameId}}/players",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"player\": {\n\t\t\"balance\": 10\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE game by id",
+					"request": {
+						"url": "localhost:8080/games/{{gameId}}",
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "POST game",
+					"request": {
+						"url": "localhost:8080/games/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"game\": {\n\t\t\"finish_date\": \"2017-10-13 16:00:06\",\n\t\t\"sum_to_enter\": 2\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

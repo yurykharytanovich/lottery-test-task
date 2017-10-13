@@ -1,0 +1,4 @@
+.idea/*
+node_modules/*
+package-lock.json
+lottery-test-task.7z
