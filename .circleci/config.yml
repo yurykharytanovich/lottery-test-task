@@ -17,7 +17,7 @@ jobs:
           name: Maybe Deploy
           command: |
             sudo apt-get install awscli
-            aws s3 sync /home/ubuntu/lottery s3://s3lottery/ --delete
+            aws s3 sync ~/lottery s3://s3lottery/ --delete
 #version: 2
 #jobs:
 #  build:
