@@ -2,10 +2,10 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
-#version: 2
-#jobs:
-#  build:
-#    docker:
+version: 2
+jobs:
+  build:
+    docker:
 #      # specify the version you desire here
 #      - image: circleci/node:7.10
 #
@@ -24,11 +24,11 @@
 #      # run tests!
 #      - run: yarn test
 
-dependencies:
-    override:
-        - sudo pip install awscli
-deployment:
-  prod:
-    branch: master
-    commands:
-      - aws s3 sync /home/ubuntu/S3ContinuousDeploy s3://s3lottery --delete
+      dependencies:
+          override:
+              - sudo pip install awscli
+      deployment:
+        prod:
+          branch: master
+          commands:
+            - aws s3 sync /home/ubuntu/S3ContinuousDeploy s3://s3lottery --delete
