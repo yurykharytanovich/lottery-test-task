@@ -24,12 +24,11 @@
 #      # run tests!
 #      - run: yarn test
 
-    dependencies:
-        override:
-            - sudo pip install awscli
-
-    deployment:
-      prod:
-        branch: master
-        commands:
-          - aws s3 sync /home/ubuntu/S3ContinuousDeploy s3://s3lottery --delete
+dependencies:
+    override:
+        - sudo pip install awscli
+deployment:
+  prod:
+    branch: master
+    commands:
+      - aws s3 sync /home/ubuntu/S3ContinuousDeploy s3://s3lottery --delete
