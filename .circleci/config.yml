@@ -23,9 +23,9 @@ jobs:
       # run tests!
       - run: yarn test
 
-      dependencies:
-          override:
-              - sudo pip install awscli
+#      dependencies:
+#          override:
+#              - sudo pip install awscli
 
       - deploy:
           name: Maybe Deploy
