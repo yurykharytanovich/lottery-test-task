@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:7.10
-    working_directory: ~/repo
+    working_directory: ~/lottery
     steps:
       - checkout
       - run: yarn install
@@ -17,7 +17,7 @@ jobs:
           name: Maybe Deploy
           command: |
             sudo apt-get install awscli
-            aws s3 sync ~/S3ContinuousDeploy s3://s3lottery --delete
+            aws s3 sync /home/ubuntu/lottery s3://s3lottery/ --delete
 #version: 2
 #jobs:
 #  build:
